@@ -2,39 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* CyberSense - Fraud Awareness Game Design System
+Security-focused color palette with deep blues, fraud alert reds, and safety greens.
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 210 30% 98%;
+    --foreground: 215 25% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 210 25% 95%;
+    --card-foreground: 215 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 210 30% 98%;
+    --popover-foreground: 215 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
+    /* Security Blue - Primary brand color */
+    --primary: 215 85% 35%;
     --primary-foreground: 210 40% 98%;
+    --primary-glow: 215 85% 55%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Trust Green - Safe transactions */
+    --secondary: 145 70% 45%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Neutral Gray - Muted elements */
+    --muted: 210 15% 92%;
+    --muted-foreground: 215 15% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent Blue - Interactive elements */
+    --accent: 215 75% 65%;
+    --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* Fraud Red - Danger/alerts */
+    --destructive: 0 85% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Warning Orange - Caution */
+    --warning: 35 90% 55%;
+    --warning-foreground: 210 40% 98%;
+
+    /* Success Green - Achievements */
+    --success: 145 70% 45%;
+    --success-foreground: 210 40% 98%;
+
+    --border: 210 20% 85%;
+    --input: 210 20% 90%;
+    --ring: 215 85% 35%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(215 85% 35%), hsl(215 85% 55%));
+    --gradient-security: linear-gradient(135deg, hsl(215 85% 25%), hsl(215 85% 45%));
+    --gradient-fraud: linear-gradient(135deg, hsl(0 85% 50%), hsl(0 85% 70%));
+    --gradient-success: linear-gradient(135deg, hsl(145 70% 35%), hsl(145 70% 55%));
+    --gradient-warning: linear-gradient(135deg, hsl(35 90% 45%), hsl(35 90% 65%));
+
+    /* Shadows with security theme */
+    --shadow-card: 0 4px 20px -2px hsl(215 85% 35% / 0.1);
+    --shadow-glow: 0 0 30px hsl(215 85% 55% / 0.3);
+    --shadow-fraud: 0 4px 20px -2px hsl(0 85% 60% / 0.2);
+    --shadow-success: 0 4px 20px -2px hsl(145 70% 45% / 0.2);
 
     --radius: 0.5rem;
 
@@ -56,33 +84,60 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 215 30% 8%;
+    --foreground: 210 40% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 215 25% 12%;
+    --card-foreground: 210 40% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 215 30% 8%;
+    --popover-foreground: 210 40% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Security Blue - Brighter in dark mode */
+    --primary: 215 85% 65%;
+    --primary-foreground: 215 30% 8%;
+    --primary-glow: 215 85% 75%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    /* Trust Green - Darker in dark mode */
+    --secondary: 145 70% 55%;
+    --secondary-foreground: 215 30% 8%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    /* Neutral Gray - Darker in dark mode */
+    --muted: 215 15% 18%;
+    --muted-foreground: 215 15% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Accent Blue - Brighter in dark mode */
+    --accent: 215 75% 70%;
+    --accent-foreground: 215 30% 8%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    /* Fraud Red - Brighter in dark mode */
+    --destructive: 0 85% 70%;
+    --destructive-foreground: 215 30% 8%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    /* Warning Orange - Brighter in dark mode */
+    --warning: 35 90% 65%;
+    --warning-foreground: 215 30% 8%;
+
+    /* Success Green - Brighter in dark mode */
+    --success: 145 70% 55%;
+    --success-foreground: 215 30% 8%;
+
+    --border: 215 20% 22%;
+    --input: 215 20% 18%;
+    --ring: 215 85% 65%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(215 85% 55%), hsl(215 85% 75%));
+    --gradient-security: linear-gradient(135deg, hsl(215 85% 45%), hsl(215 85% 65%));
+    --gradient-fraud: linear-gradient(135deg, hsl(0 85% 60%), hsl(0 85% 80%));
+    --gradient-success: linear-gradient(135deg, hsl(145 70% 45%), hsl(145 70% 65%));
+    --gradient-warning: linear-gradient(135deg, hsl(35 90% 55%), hsl(35 90% 75%));
+
+    /* Dark mode shadows */
+    --shadow-card: 0 4px 20px -2px hsl(215 85% 65% / 0.1);
+    --shadow-glow: 0 0 30px hsl(215 85% 75% / 0.3);
+    --shadow-fraud: 0 4px 20px -2px hsl(0 85% 70% / 0.2);
+    --shadow-success: 0 4px 20px -2px hsl(145 70% 55% / 0.2);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -101,5 +156,90 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
+
+  /* Smooth scrolling for better UX */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom animations for the fraud game */
+@layer utilities {
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-shake {
+    animation: shake 0.5s ease-in-out;
+  }
+
+  .animate-success {
+    animation: success-bounce 0.6s ease-out;
+  }
+
+  .animate-fraud-alert {
+    animation: fraud-alert 0.8s ease-in-out;
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-security {
+    background: var(--gradient-security);
+  }
+
+  .gradient-fraud {
+    background: var(--gradient-fraud);
+  }
+
+  .gradient-success {
+    background: var(--gradient-success);
+  }
+
+  .gradient-warning {
+    background: var(--gradient-warning);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-fraud {
+    box-shadow: var(--shadow-fraud);
+  }
+
+  .shadow-success {
+    box-shadow: var(--shadow-success);
+  }
+}
+
+/* Keyframes for custom animations */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes success-bounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fraud-alert {
+  0% { transform: scale(1); background-color: hsl(var(--card)); }
+  50% { transform: scale(1.02); background-color: hsl(var(--destructive) / 0.1); }
+  100% { transform: scale(1); background-color: hsl(var(--card)); }
 }
